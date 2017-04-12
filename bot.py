@@ -15,7 +15,7 @@ async def on_message(message):
         await client.send_message(message.channel, msg)
 
     if message.content.startswith('!kill'):
-        req = urllib.request.Request('https://zkillboard.com/corporation/682962063/kills/')
+        req = urllib.request.Request('https://zkillboard.com/corporation/yourcorpId/kills/')
         with urllib.request.urlopen(req) as response:
             page = response.read()
         soup  = BeautifulSoup(page , "lxml")
@@ -36,7 +36,7 @@ async def on_message(message):
             await client.send_message(message.channel, y)
 
     if message.content.startswith('!loss'):
-        req = urllib.request.Request('https://zkillboard.com/corporation/682962063/losses/')
+        req = urllib.request.Request('https://zkillboard.com/corporation/yourcorpId/losses/')
         with urllib.request.urlopen(req) as response:
             page = response.read()
         soup  = BeautifulSoup(page , "lxml")
@@ -58,7 +58,7 @@ async def on_message(message):
        
     
     if message.content.startswith('!overview'):
-        req = urllib.request.Request('https://zkillboard.com/corporation/682962063/')
+        req = urllib.request.Request('https://zkillboard.com/corporation/yourcorpId/')
         with urllib.request.urlopen(req) as response:
             page = response.read()
         soup  = BeautifulSoup(page , "lxml")
@@ -86,4 +86,4 @@ async def on_ready():
     print(client.user.id)
     print('------')
 
-client.run('your api key here')
+client.run('####your api key here####')
